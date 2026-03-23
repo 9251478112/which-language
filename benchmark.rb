@@ -10,6 +10,9 @@ require 'shellwords'
 require 'set'
 require_relative 'lib/codex_loader'
 
+require 'dotenv'
+Dotenv.load
+
 BASE_DIR = File.expand_path(__dir__)
 PROBLEMS_DIR = File.join(BASE_DIR, 'problems')
 
