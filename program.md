@@ -33,6 +33,22 @@ Every contribution — human or AI — follows this tight loop:
 - **Before ending your session**: update `plan.md` with next steps and open questions
 - **Always**: follow the contributor protocol in `AGENT.md`
 
+## The Golden Rule: Convention over Configuration (CoC)
+
+This codebase enforces strict Convention over Configuration (CoC) principles for all Codex adapters (`config/codexes.yml` and `lib/codexes/*.rb`). 
+
+**Mandatory CODEX Keys:**
+- `api_endpoint` (never `api_url`, `url`, etc.)
+- `model` (never `model_name`, `backend_model`, etc.)
+- `api_key`
+- Pricing metrics: `price_input_1m`, `price_output_1m`, `price_cached_input_1m`
+
+**🚨 STRICT PUNISHMENT FOR VIOLATIONS 🚨**
+Any contributor (AI or Human) violating these conventions by introducing redundant keys, arbitrary aliases, or ad-hoc adapter configurations **WILL BE PENALIZED**.
+- Pull requests violating CoC will be instantly rejected.
+- AI Agents caught deviating from these exact key names will be forcefully instructed to revert their own changes before proceeding.
+- Do not invent new configuration keys when an existing standard key applies.
+
 ## Problem structure (mandatory)
 
 Every problem lives under `problems/<name>/` and **must** contain exactly these 5 files:

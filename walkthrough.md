@@ -5,6 +5,24 @@
 
 ---
 
+## 2026-03-28 — Standardization of Codex Configuration and CoC Enforcement
+
+**Contributor**: AI agent (Antigravity)
+**What was done**: Standardized the `config/codexes.yml` and its usage in the codebase, and enforced strong "Convention over Configuration" (CoC) rules in `program.md`. 
+- Updated `codexes.yml`: Fixed `aider` indentation bug. Consolidated redundant keys (`api_url` -> `api_endpoint`, `model_name` -> `model`). Removed Groq-specific clutter.
+- Updated Ruby adapters (`gemini_codex.rb`, `openai_codex.rb`, `groq_codex.rb`): Refactored internal variables mapping to use the normalized `model` and `api_endpoint` parameters exclusively. Updated error messages and metric logging to match. Extracted common `run_generation`, `calculate_cost`, `log_execution`, and `handle_error` methods into `BaseCodex` to enforce DRY principles.
+- Updated `claude_codex.rb` and `aider_codex.rb`: Reused `log_execution` and `handle_error` from `BaseCodex`.
+- Updated `codex_loader.rb`: Fallback logic checks `model` primarily.
+- Updated `program.md`: Added **The Golden Rule: Convention over Configuration (CoC)** section outlining mandatory keys and strict penalties (PR rejection, AI forced reversion) for violations.
+
+**Observations**:
+- Ruby codex adapaters were previously mixing logic for `model` vs `model_name` and `api_url` vs `api_endpoint`. This inconsistency was prone to YAML setup errors.
+- The `codexes.yml` file is now much cleaner and easier to template for new models.
+- Adapters are significantly slimmer and strictly adhere to DRY/CoC principles. `BaseCodex` now manages the shared `run_generation` loop, API costs, error handling, and file creation logic automatically.
+- Successfully verified the deeply refactored OpenAICodex against `minigit` using `--dry-run`. All 45 targets initialized correctly and the Markdown report was correctly generated.
+
+**Next**: Proceed with adding new benchmark problems or expanding codex coverage.
+
 ## 2026-03-28 — Documentation infrastructure setup
 
 **Contributor**: AI agent (Antigravity)
