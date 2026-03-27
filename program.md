@@ -30,6 +30,7 @@ Every contribution — human or AI — follows this tight loop:
 
 - **Before starting work**: read `plan.md` to see what's active and what's next
 - **After each experiment or code change**: append a dated entry to `walkthrough.md`
+- **When adding new features**: actively update descriptive `.md` files (`program.md`, `CLAUDE.md`, `README.md`) so the context remains fresh
 - **Before ending your session**: update `plan.md` with next steps and open questions
 - **Always**: follow the contributor protocol in `AGENT.md`
 

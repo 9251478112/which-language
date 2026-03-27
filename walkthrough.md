@@ -64,3 +64,12 @@
 - v1 delete message was "Student deleted successfully." but v2 was "Student and all grades deleted successfully." — normalized per version
 
 **Next**: Run `ruby benchmark.rb --problem minigrades --dry-run` to validate loading
+
+## 2026-03-27 — Add TPS Metric and Fix miniplaylist
+**Contributor**: Antigravity
+**What was done**: Added Tokens Per Second (TPS) metrics to `report.rb` and `plot.py`. Rewrote `miniplaylist` problem.json, specs, and tests to adhere to strict Convention over Configuration guidelines.
+**Codex/Problem/Language**: N/A (Codebase maintenance + miniplaylist)
+**Key metrics**: N/A
+**Observations**: The newly proposed `miniplaylist` had language-specific lock-ins (forced `python3` instead of the binary) and did not follow the required schema variables like `binary_name`.
+**Decisions made**: TPS was defined as `Output Tokens / Time` to objectively measure model inference speeds irrespective of environmental constraints.
+**Next**: Ready to run `miniplaylist` benchmarks properly.

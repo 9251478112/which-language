@@ -104,9 +104,9 @@ When adding support for a new AI coding system:
 - [ ] Run 1 real trial: `bash scripts/run-all.sh <name> minigit --lang python --trials 1`
 - [ ] Run 3+ trials for variance data
 - [ ] Document pricing in `CLAUDE.md`
+- [ ] Document the new adapter in relevant `.md` files (e.g., `program.md`, `README.md`) to update project context
 - [ ] Update `plan.md` status
 - [ ] Add walkthrough.md entry
-- [ ] Update plan.md
 
 ## New problem checklist
 
@@ -114,8 +114,9 @@ When adding support for a new AI coding system:
 - [ ] Write `SPEC-v1.txt` and `SPEC-v2.txt`
 - [ ] Write `test-v1.sh` and `test-v2.sh` (deterministic, self-contained)
 - [ ] Test with at least 1 codex × 1 language × 1 trial
+- [ ] Document the new problem in relevant `.md` files (e.g., `program.md`, `CLAUDE.md`, `README.md`) to update project context
 - [ ] Add walkthrough.md entry
-- [ ] Update plan.md
+- [ ] Update `plan.md` status
 
 ---
 
